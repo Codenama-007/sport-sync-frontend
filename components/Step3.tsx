@@ -4,24 +4,25 @@ import { CardFooter } from './ui/card'
 import { Field , FieldGroup , FieldLabel} from './ui/field'
 import { Button } from './ui/button'
 import { Input } from './ui/input'
+import { StepProps } from "@/types/form";
 
 
 
+const Step3 = ({
+  step,
+  update_step,
+  formData,
+  setFormData,
+}: StepProps) => {
+const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+  e.preventDefault();
 
-const Step3 = ({step , update_step , formData , setFormData}) => {
-    const handleSubmit = (e) => {
+  if (formData.password.length < 8) {
+    alert("Password must be at least 8 characters.");
+    return;
+  }
 
-    e.preventDefault();
-
-    if(formData.password.length < 8){
-        alert("Password must be at least 8 characters.");
-        return;
-    }
-
-    console.log(formData);
-
-}
-    return (
+};   return (
         <>
             <FieldGroup>
                 <Field>

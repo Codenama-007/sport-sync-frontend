@@ -15,18 +15,22 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { StepProps } from "@/types/form";
 
 
-
-const Step2 = ({step , update_step , formData , setFormData}) => {
+const Step2 = ({
+  step,
+  update_step,
+  formData,
+  setFormData,
+}: StepProps) => {
   
-  const items = [
-  { label: "Select a Level", value: null },
-  { label: "Beginner", value: 1 },
-  { label: "Intermediate", value: 2 },
-  { label: "Advance", value: 3 },
-  { label: "Professional", value: 4 }
-]
+const items = [
+  { label: "Beginner", value: "Beginner" },
+  { label: "Intermediate", value: "Intermediate" },
+  { label: "Advance", value: "Advance" },
+  { label: "Professional", value: "Professional" },
+];
   return (
     <>
 
@@ -65,7 +69,17 @@ const Step2 = ({step , update_step , formData , setFormData}) => {
           <FieldLabel>
             Select Your Level 
           </FieldLabel>
-          <Select items={items}>
+          <Select
+  value={formData.level}
+  onValueChange={(value) => {
+    if (value === null) return;
+
+    setFormData({
+      ...formData,
+      level: value,
+    });
+  }}
+>
       <SelectTrigger className="w-full max-w-48">
         <SelectValue />
       </SelectTrigger>
@@ -73,7 +87,10 @@ const Step2 = ({step , update_step , formData , setFormData}) => {
         <SelectGroup>
           <SelectLabel>Level</SelectLabel>
           {items.map((item) => (
-            <SelectItem key={item.value} value={item.value}>
+            <SelectItem
+    key={item.value}
+    value={item.value}
+>
               {item.label}
             </SelectItem>
           ))}

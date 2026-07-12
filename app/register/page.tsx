@@ -21,7 +21,7 @@ const page = () => {
   email: "",
   password: "",
 });
-  const [Step, setStep] = useState<Number>(1)
+  const [Step, setStep] = useState<number>(1);
   return (
     <div className='min-h-screen flex items-center justify-center p-4'>
 

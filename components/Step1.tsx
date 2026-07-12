@@ -6,9 +6,14 @@ import { Input } from './ui/input'
 import {Textarea} from './ui/textarea'
 import { CardFooter } from './ui/card'
 import { Button } from './ui/button'
+import { StepProps } from "@/types/form";
 
-
-const Step1 = ({step , update_step , formData , setFormData}) => {
+const Step1 = ({
+  step,
+  update_step,
+  formData,
+  setFormData,
+}: StepProps) => {
   const handleNext = () => {
 
     if(formData.username.length < 8){
